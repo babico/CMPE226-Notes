@@ -1,0 +1,64 @@
+Linked List
+Head points to the first node.
+T
+A node of a linked list includes two pointers as members.
+F
+The link of a node with no successor is set to NULL.
+T
+A linked list is a static data structure.
+F
+A doubly linked list can be traversed in a single direction.
+T
+#
+Stack
+Stack is a FIFO structure.
+F
+Stack is a LIFO structure
+T
+Stacks can be implemented with linked lists.
+T
+Stacks can be implemented with binary trees.
+F
+Top always shows the first element inserted into the stack.
+F
+Pop function of the stack deletes the topmost element.
+T
+#
+Queue
+Queue is a FIFO structure.
+T
+The insertion to a queue is made from the front.
+F
+The deletion from a queue is made from the front.
+T
+In the priority queue, the queue is ordered according to priority.
+T
+Queue is a LIFO structure.
+F
+#
+Binary Tree
+A node with no outgoing links is called a root.
+F
+A node with no outgoing links is called a leaf.
+T
+A node that has no incoming links but from which every other node in the tree can be reached by following a unique sequence of consecutive links is called the root.
+T
+A node in a binary tree can have 0 or 1 children.
+F
+The preorder traversal of a binary tree is visiting left node-root node-right node.
+F
+In binary search trees, the left subtree of a node is less than and the right subtree of a node is greater than the contents of the node.
+T
+#
+Sorting
+In selection sort, elements are inserted into the sorted portion of the array.
+F
+In selection sort, smallest of the remaining elements of the array is placed in its proper place.
+T
+Bubble sort is faster than merge sort.
+F
+In quick sort according to a pivot, the array is split into two and the left and right subarrays are sorted.
+T
+In insertion sort, in each pass an array element is compared against its successor, if out of order, they are swapped.
+F
+#
