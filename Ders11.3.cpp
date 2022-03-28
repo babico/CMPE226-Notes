@@ -14,8 +14,8 @@ bool DoublyLinkedList_CT<T>::isFibonacci()
     DNode<T> *temp;
     bool fib = true;
 
-    1   1   2   3   5
-            ^
+    // 1   1   2   3   5
+    //         ^
 
     if (head->data == 1 && head->right->data == 1)
     {
