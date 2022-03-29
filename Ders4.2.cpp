@@ -46,6 +46,7 @@ int main()
         p = p->next;
     }
 
+
     s = new Node;
     s->data = x;
     s->next = p;

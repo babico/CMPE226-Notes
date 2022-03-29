@@ -29,7 +29,7 @@ public:
 
         return os;
     }
-    bool operator==(Person &per)
+    bool operator==(const Person &per)
     {
         return num == per.num;
     }

@@ -2,15 +2,17 @@
 // BUILDING LINKLIST IN BACKWARD DIRECTION
 using namespace std;
 
+template <class T>
 struct Node
 {
-    int data;
+    T data;
     Node *next;
 };
 
-Node *createBackward()
+template <typename T>
+Node<T> *createBackward()
 {
-    Node *head, *curr;
+    Node<T> *head, *curr;
     int num;
     cout << "Enter number: ";
     cin >> num;
@@ -18,7 +20,7 @@ Node *createBackward()
 
     while (num != -99)
     {
-        curr = new Node;
+        curr = new Node<T>;
         curr->data = num;
         curr->next = head;
         head = curr;
@@ -29,8 +31,8 @@ Node *createBackward()
 
 int main()
 {
-    Node *h, *p;
-    h = createBackward();
+    Node<int> *h, *p;
+    h = createBackward<int>();
 
     cout << "printing" << endl;
     p = h;
