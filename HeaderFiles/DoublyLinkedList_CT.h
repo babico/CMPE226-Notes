@@ -12,7 +12,7 @@ namespace std
         T data;
         DNode<T> *right, *left;
     };
-    
+
     template <typename T>
     class DoublyLinkedList_CT
     {
@@ -28,8 +28,8 @@ namespace std
         }
         void insertLast(T &item)
         {
-            DNode<T> *temp = new Node<T>;
-            temp->info = item;
+            DNode<T> *temp = new DNode<T>;
+            temp->data = item;
             temp->right = NULL;
             if (head != NULL)
             {
@@ -45,12 +45,57 @@ namespace std
 
             count++;
         }
-        Node<T> *search(T &item);
+        DNode<T> *search(T &item);
         /*
             Write a function in the DoublyLinkedList class
             which recives an item & searches for it in the list list.
             If found, it deletes all nodes occuruing before the found node
         */
+
+        void delEvenIndex() // Mid1 Question
+        {
+            DNode<T> *temp, *temp2;
+            temp = head;
+            if (count > 1)
+            {
+                temp2 = temp->right;
+            }
+            bool valid = (count % 2 == 0);
+
+            if (head == NULL)
+            {
+                cerr << "List is empty";
+                return;
+            }
+            if (count == 1)
+            {
+                cerr << "List has only 1 node";
+                return;
+            }
+            for (int i = 0; i < (count / 2); i++)
+            {
+                temp->right = temp2->right;
+                if (count > 2)
+                {
+                    temp2->right->left = temp;
+                }
+                delete temp2;
+                temp = temp->right;
+                if (count > 2)
+                {
+                    temp2 = temp->right;
+                }
+            }
+            if (valid)
+            {
+                temp = head;
+                for (int i = 0; i < count; i++)
+                {
+                    temp->right;
+                }
+                last = temp;
+            }
+        }
         void deleteRest(T &item)
         {
             DNode<T> *temp, *tempPrev1, *tempPrev2;
@@ -73,6 +118,18 @@ namespace std
                 head = temp;
                 head->left = NULL;
             }
+        }
+
+        template <typename S>
+        friend ostream &operator<<(ostream &out, const DoublyLinkedList_CT<S> &list)
+        {
+            DNode<T> *temp = list.head;
+            while (temp != NULL)
+            {
+                out << temp->data << " ";
+                temp = temp->right;
+            }
+            return out;
         }
     };
 }

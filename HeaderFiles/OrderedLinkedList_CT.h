@@ -27,6 +27,17 @@ namespace std
         }
         void insert(T &item)
         {
+            if (head == NULL)
+            {
+                head = new ONode;
+                head->data = item;
+                last = head;
+                count++;
+                return;
+            }
+            ONode *temp;
+            temp = head;
+            
         }
         ONode<T> *search(T &item)
         {
