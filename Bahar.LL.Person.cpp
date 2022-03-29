@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include "bahar-ll.h"
-#include "bahar-person.h"
+#include "Bahar.LL.h"
+#include "Bahar.Person.h"
 
 using namespace std;
 
