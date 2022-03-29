@@ -8,34 +8,35 @@ using namespace std;
 
 // Doubly linklist örneği soruda var
 
-template <typename T>
-bool DoublyLinkedList_CT<T>::isFibonacci()
-{
-    DNode<T> *temp;
-    bool fib = true;
-
-    // 1   1   2   3   5
-    //         ^
-
-    if (head->data == 1 && head->right->data == 1)
+/*
+    template <typename T>
+    bool DoublyLinkedList_CT<T>::isFibonacci()
     {
-        temp = head->right->right;
-        while ((temp != NULL) && fib)
+        DNode<T> *temp;
+        bool fib = true;
+
+        // 1   1   2   3   5
+        //         ^
+
+        if (head->data == 1 && head->right->data == 1)
         {
-            if (temp->data == temp->left->data + temp->left->left->data)
+            temp = head->right->right;
+            while ((temp != NULL) && fib)
             {
-                temp = temp->right;
-            }
-            else
-            {
-                fib = false;
+                if (temp->data == temp->left->data + temp->left->left->data)
+                {
+                    temp = temp->right;
+                }
+                else
+                {
+                    fib = false;
+                }
             }
         }
+
+        return fib;
     }
-
-    return fib;
-}
-
+*/
 int main(int argc, char const *argv[])
 {
     DoublyLinkedList_CT<int> fib;

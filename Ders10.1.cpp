@@ -1,5 +1,5 @@
 #include <iostream>
-#include "HeaderFiles/Stack_CT.h"
+#include "HeaderFiles/ArrayStack_CT.h"
 // MAKE AN EXAMPLE WITH STACK
 using namespace std;
 
@@ -9,7 +9,7 @@ int main()
     cout << "Enter size of stack: ";
     cin >> n;
     
-    Stack<int> yigint(n);
+    ArrayStack_CT<int> yigint(n);
     for (int i = 0; i < n; i++)
     {
         int xd;

@@ -119,6 +119,32 @@ namespace std
                 head->left = NULL;
             }
         }
+        bool isFibonacci() // Ders11.3.cpp
+        {
+            DNode<T> *temp;
+            bool fib = true;
+
+            // 1   1   2   3   5
+            //         ^
+
+            if (head->data == 1 && head->right->data == 1)
+            {
+                temp = head->right->right;
+                while ((temp != NULL) && fib)
+                {
+                    if (temp->data == temp->left->data + temp->left->left->data)
+                    {
+                        temp = temp->right;
+                    }
+                    else
+                    {
+                        fib = false;
+                    }
+                }
+            }
+
+            return fib;
+        }
 
         template <typename S>
         friend ostream &operator<<(ostream &out, const DoublyLinkedList_CT<S> &list)
