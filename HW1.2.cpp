@@ -2,14 +2,7 @@
 #include <string>
 #include <fstream>
 #include <time.h>
-#include "HeaderFiles/LinkedList.h"
-
-#define RED "\e[0;31m"
-#define GRN "\e[0;32m"
-#define BLU "\e[0;34m"
-#define MAG "\e[0;35m"
-#define CYN "\e[0;36m"
-#define reset "\e[0m"
+#include "HeaderFiles/LinkedList.h" // Ziya Karakaya LinkedList v0.5
 
 using namespace std;
 
@@ -45,15 +38,16 @@ public:
         yanit = false;
     }
 
+    bool operator==(const Soru &s)
+    {
+        return soruNo == s.soruNo;
+    }
+
     friend ostream &operator<<(ostream &os, const Soru &s)
     {
         os << s.soruNo << " " << s.soru << " " << s.cevap << endl;
 
         return os;
-    }
-    bool operator==(const Soru &s)
-    {
-        return soruNo == s.soruNo;
     }
 
     ~Soru() {}
@@ -72,6 +66,7 @@ int main()
     Sinav konular[5];
     string cevapI = "default for while loop";
     int yanlisSoruSayac = 0, soruSayi = 1;
+
     fstream girisDosya("Hw1TextFile.txt", ios::in | ios::out);
 
     if (!girisDosya.is_open())
@@ -121,24 +116,23 @@ int main()
 
             LLNode<Soru> *geciciNode = konular[i].Sorular.search(Soru(rastgeleSoruSayi));
 
-            cout << BLU << soruSayi << ".\t" << reset << geciciNode->data.alSoru() << MAG << " (T/F)" << reset << ": ";
+            cout << soruSayi << ".\t" << geciciNode->data.alSoru() << " (T/F): ";
             while (1)
             {
                 if (cevapI != "T" && cevapI != "F" && cevapI != "default for while loop")
                 {
                     cout << "Enter proper answer like \"T\" or \"F\"!" << endl;
-                    cout << BLU << soruSayi << ".\t" << reset << geciciNode->data.alSoru() << MAG << " (T/F)" << reset << ": ";
+                    cout << soruSayi << ".\t" << geciciNode->data.alSoru() << " (T/F): ";
                 }
 
-                cout << CYN;
                 cin >> cevapI;
-                cout << reset;
 
                 if (cevapI == "T" || cevapI == "F")
                 {
                     break;
                 }
             }
+
             soruSayi++;
 
             if (cevapI != geciciNode->data.alCevap())
@@ -147,7 +141,6 @@ int main()
                 yanlisSoruSayac++;
             }
         }
-        cout << endl;
     }
 
     cout << "Your score: " << 10 - yanlisSoruSayac << "/10" << endl
@@ -161,7 +154,7 @@ int main()
 
             if (!geciciNode->data.alYanit())
             {
-                cout << geciciNode->data.alSoru() << " Correct answer: " << ((geciciNode->data.alCevap() == "T") ? GRN "True" : RED "False") << reset << endl;
+                cout << geciciNode->data.alSoru() << " Correct answer: " << ((geciciNode->data.alCevap() == "T") ? "True" : "False") << endl;
             }
         }
     }
