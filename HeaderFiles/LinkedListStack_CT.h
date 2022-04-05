@@ -4,19 +4,19 @@
 
 namespace std
 {
-    template<typename T>
+    template <typename T>
     struct StackNode
     {
         T info;
         StackNode<T> *next;
     };
-    
+
     template <typename T>
     class LinkedListStack_CT
     {
     private:
         StackNode<T> *top;
-    
+
     public:
         LinkedListStack_CT()
         {
@@ -27,21 +27,10 @@ namespace std
             destroy();
         }
 
-        bool isEmpty()
-        {
-            return top == NULL;
-        }
         T sTop()
         {
             assert(!isEmpty());
             return top->info;
-        }
-        void push(const T &item)
-        {
-            StackNode<T> *temp = new StackNode<T>;
-            temp->info = item;
-            temp->next = top;
-            top = temp;
         }
         T pop()
         {
@@ -53,6 +42,19 @@ namespace std
             delete temp;
             return item;
         }
+
+        bool isEmpty()
+        {
+            return top == NULL;
+        }
+
+        void push(const T &item)
+        {
+            StackNode<T> *temp = new StackNode<T>;
+            temp->info = item;
+            temp->next = top;
+            top = temp;
+        }
         void destroy()
         {
             StackNode<T> *temp;
@@ -62,7 +64,6 @@ namespace std
                 top = top->next;
                 delete temp;
             }
-            
         }
     };
 

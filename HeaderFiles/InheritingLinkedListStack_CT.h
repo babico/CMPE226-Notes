@@ -5,7 +5,7 @@
 namespace std
 {
     template <typename T>
-    class InheritingLinkedListStack_CT::public LinkedList<T>
+    class InheritingLinkedListStack_CT::public LinkedList_CT<T>
     {
     public:
         InheritingLinkedListStack_CT()

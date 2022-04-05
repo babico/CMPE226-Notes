@@ -11,5 +11,6 @@ int main(int argc, char const *argv[])
     st.push(5);
     auto x = st.top();
     cout << x;
+    
     return 0;
 }
