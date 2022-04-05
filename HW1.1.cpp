@@ -2,7 +2,7 @@
 #include <string>
 #include <fstream>
 #include <time.h>
-#include "HeaderFiles/LinkedList.h" // Ziya Karakaya LinkedList v0.5
+#include "HeaderFiles/LinkedList.h"
 
 using namespace std;
 
@@ -14,13 +14,10 @@ private:
     string soru, cevap;
 
 public:
-    Soru(int noI = 0, string soruI = "", string cevapI = "")
+    Soru(int noI = 0)
     {
         soruNo = noI;
-        soru = soruI;
-        cevap = cevapI;
     }
-
     string alSoru()
     {
         return soru;
@@ -37,17 +34,22 @@ public:
     {
         yanit = false;
     }
-
-    bool operator==(const Soru &s)
+    void atama(int noI, string soruI, string cevapI)
     {
-        return soruNo == s.soruNo;
+        soruNo = noI;
+        soru = soruI;
+        cevap = cevapI;
     }
 
-    friend ostream &operator<<(ostream &os, const Soru &s)
+    friend ostream &operator<<(ostream &os, const Soru &soru)
     {
-        os << s.soruNo << " " << s.soru << " " << s.cevap << endl;
+        os << soru.soruNo << " " << soru.soru << " " << soru.cevap << endl;
 
         return os;
+    }
+    bool operator==(const Soru &soru)
+    {
+        return this->soruNo == soru.soruNo;
     }
 
     ~Soru() {}
@@ -60,20 +62,22 @@ public:
     LinkedList<Soru> Sorular;
 };
 
+void rastgeleSayiKontrol(int &rastgele, int &kullanilmis, LinkedList<Soru> &obje)
+{
+    if (rastgele == kullanilmis)
+    {
+        rastgele = (rand() % obje.length()) + 1;
+        rastgeleSayiKontrol(rastgele, kullanilmis, obje);
+    }
+}
+
 int main()
 {
     srand(time(NULL));
-    Sinav konular[5];
-    string cevapI = "default for while loop";
-    int yanlisSoruSayac = 0, soruSayi = 1;
-
     fstream girisDosya("Hw1TextFile.txt", ios::in | ios::out);
 
-    if (!girisDosya.is_open())
-    {
-        cout << "There is no \"Hw1TextFile.txt\" in folder.";
-        return 0;
-    }
+    Sinav konular[5];
+    int yanlisSoruSayac = 0;
 
     for (int i = 0; i < 5; i++)
     {
@@ -85,6 +89,7 @@ int main()
 
         while (1)
         {
+            Soru gecici;
             getline(girisDosya, geciciSoru);
             if (geciciSoru == "#")
             {
@@ -92,48 +97,33 @@ int main()
             }
             getline(girisDosya, geciciCevap);
 
-            konular[i].Sorular.insertLast(Soru(soruNo, geciciSoru, geciciCevap));
+            gecici.atama(soruNo, geciciSoru, geciciCevap);
+
+            konular[i].Sorular.insertLast(gecici);
             soruNo++;
         }
     }
-    girisDosya.close();
 
     cout << "Data Structures Quiz" << endl
          << "Answer the following:" << endl;
     for (int i = 0; i < 5; i++)
     {
-        int kullanilmisSoruSayi = 0, rastgeleSoruSayi = -1;
         cout << konular[i].konu << " questions" << endl;
-
+        int kullanilmisSoruSayi = 0;
         for (int j = 1; j <= 2; j++)
         {
-            do
-            {
-                rastgeleSoruSayi = (rand() % konular[i].Sorular.length()) + 1;
-            } while (rastgeleSoruSayi == kullanilmisSoruSayi);
+            int rastgeleSoruSayi = (rand() % konular[i].Sorular.length()) + 1;
+            string cevapI;
+            bool bayrak = false;
 
+            rastgeleSayiKontrol(rastgeleSoruSayi, kullanilmisSoruSayi, konular[i].Sorular);
+
+            Soru geciciSoru(rastgeleSoruSayi);
+            LLNode<Soru> *geciciNode = konular[i].Sorular.search(geciciSoru);
             kullanilmisSoruSayi = rastgeleSoruSayi;
 
-            LLNode<Soru> *geciciNode = konular[i].Sorular.search(Soru(rastgeleSoruSayi));
-
-            cout << soruSayi << ".\t" << geciciNode->data.alSoru() << " (T/F): ";
-            while (1)
-            {
-                if (cevapI != "T" && cevapI != "F" && cevapI != "default for while loop")
-                {
-                    cout << "Enter proper answer like \"T\" or \"F\"!" << endl;
-                    cout << soruSayi << ".\t" << geciciNode->data.alSoru() << " (T/F): ";
-                }
-
-                cin >> cevapI;
-
-                if (cevapI == "T" || cevapI == "F")
-                {
-                    break;
-                }
-            }
-
-            soruSayi++;
+            cout << j << ".\t" << geciciNode->data.alSoru() << " (T/F): ";
+            cin >> cevapI;
 
             if (cevapI != geciciNode->data.alCevap())
             {
@@ -150,7 +140,8 @@ int main()
     {
         for (int g = 1; g <= konular[k].Sorular.length(); g++)
         {
-            LLNode<Soru> *geciciNode = konular[k].Sorular.search(Soru(g));
+            Soru geciciSoru(g);
+            LLNode<Soru> *geciciNode = konular[k].Sorular.search(geciciSoru);
 
             if (!geciciNode->data.alYanit())
             {
