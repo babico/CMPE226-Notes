@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+// IF THE HASSH TABELS BELOWS IS GIVEN WITH THE
+// KEYS & THEIR RESPECTIVE HASHING & COLLISON RESULUTION
+// ALGORITHIMS, INSERT THE KEYS
+
+// d) KEYS: 654, 237, 110, 8, 9, 9112, 714, 898, 512
+// ARRAY SIZE: 10
+// HASH FUNC: SUM OF DIGITS % SIZE
+// COLLUSION RESULATION: RANDOM PROBING
+// RANDOM NUMBERS: 2, 4, 6, 11, 24, 38, 51
+
+int main(int argc, char const *argv[])
+{
+    return 0;
+}
