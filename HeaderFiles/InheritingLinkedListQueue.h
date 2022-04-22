@@ -10,7 +10,7 @@
 
 #include <iostream>
 #include <cassert>
-#include "LinkedList.v0.5.h"
+#include "LinkedList.h"
 
 namespace std
 {
