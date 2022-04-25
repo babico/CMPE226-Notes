@@ -67,7 +67,7 @@ int main()
     string cevapI = "default for while loop";
     int yanlisSoruSayac = 0, soruSayi = 1;
 
-    fstream girisDosya("Hw1TextFile.txt", ios::in | ios::out);
+    fstream girisDosya("HW1.TextFile.txt", ios::in | ios::out);
 
     if (!girisDosya.is_open())
     {
