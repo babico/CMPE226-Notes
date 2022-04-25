@@ -3,14 +3,14 @@
  *
  *  Created on: Nov 17, 2020
  *  Author: Ziya Karakaya
-  * Desciption:
-  * 	Stack class implemented using linked list notation
-  *
-  * Last update : Nov 25, 2020
-  * Version: v0.2
-  * Update Notes:
-  * 	We changed the name Node to SNode in order to prevent redefinition error when used with other ADTs.
-  *
+ * Desciption:
+ * 	Stack class implemented using linked list notation
+ *
+ * Last update : Nov 25, 2020
+ * Version: v0.2
+ * Update Notes:
+ * 	We changed the name Node to SNode in order to prevent redefinition error when used with other ADTs.
+ *
  */
 
 #ifndef LINKEDLISTSTACK_H_

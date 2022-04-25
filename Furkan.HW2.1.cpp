@@ -59,7 +59,7 @@ int main()
 
   N.insertFirst(one);
   N.front().Listed();
-  
+
   // create fun.
   string name;
   cin >> name;
