@@ -52,7 +52,7 @@ int main()
 	int MinRnd = 1;			  // minimum limit of random numbers
 	int SizeRnd = 1;		  // maximum limit of random numbers
 
-	fin.open("Hw1TextFile.txt "); // open .txt file to read
+	fin.open("HW1.TextFile.txt "); // open .txt file to read
 
 	for (int i = 0; i < 5; i++) // read for each title (5 title)
 	{
