@@ -13,5 +13,40 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
+
+    int arr[10];
+
+    arr[(6 + 5 + 4) % 10] = 654;
+    arr[(2 + 3 + 7) % 10] = 237;
+    arr[((1 + 1 + 0) % 10) + 2] = 110; // collision with 237 so add 2 (first collision for equal 2)
+    arr[(8) % 10] = 8;
+    arr[(9) % 10] = 9;
+    arr[(9 + 1 + 1 + 2) % 10] = 9112;
+    arr[((7 + 1 + 4) % 10) + 4] = 714; // collision with 110 so add 4 (second collision for equal 2)
+    arr[((8 + 9 + 8) % 10) + 2] = 898; // collision with 654 so add 2 (first collision for equal 5)
+    arr[(5 + 1 + 2) % 10] = 512;       // collision with 8 so add 2 (first collision for equal 8)
+
+    /*
+        0 | 512|
+          |____|
+        1 |    |
+          |____|
+        2 | 237|
+          |____|
+        3 |9112|
+          |____|
+        4 | 110|
+          |____|
+        5 | 654|
+          |____|
+        6 | 714|
+          |____|
+        7 | 898|
+          |____|
+        8 |   8|
+          |____|
+        9 |    |
+          |____|
+    */
     return 0;
 }
