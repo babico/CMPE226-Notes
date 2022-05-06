@@ -14,10 +14,8 @@ namespace std
     template <typename T>
     class BinaryTree_CT
     {
-    private:
-        BinaryTreeNode<T> *root;
-
     protected:
+        BinaryTreeNode<T> *root;
         void destroyP(BinaryTreeNode<T> *&temp) // & ile pointer olarak fonksiyona yollanan değişkende manüpile edilebiliiyor
         {
             if (temp != NULL)
