@@ -1,5 +1,5 @@
 #include <iostream>
-#include <HeaderFiles/LinkedList.h>
+#include "HeaderFiles/LinkedList.h"
 
 using namespace std;
 // IF THE HASSH TABELS BELOWS IS GIVEN WITH THE
@@ -24,6 +24,8 @@ int main(int argc, char const *argv[])
     arr[13 % 7].insertLast(13);
     arr[5 % 7].insertLast(5);
     arr[6 % 7].insertLast(6);
+
+    arr[0].reversePrint();
 
     /*
         0 |  |-->|14|-->|21|
