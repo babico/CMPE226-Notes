@@ -44,7 +44,7 @@ public:
         {
             Queue<string> tempQueue = queueOfSongs;
             queueOfSongs.clearQueue();
-            for (int i = queueOfSongs.size(); i > 0; i--)
+            for (int i = tempQueue.size(); i > 0; i--)
             {
                 string tempSongName = tempQueue.remove();
                 if (tempSongName != songName)
@@ -91,12 +91,13 @@ int main()
          << "N : List the names of all of the registered people.\n"
          << "M : List all the songs that are liked by anyone.\n"
          << "Q : Exit the program\n\n\n";
-    while (command != 'Q')
+    while (command != 'Q' || command != 'q')
     {
         cout << "Enter: ";
         cin >> command;
         switch (command)
         {
+        case 'c':
         case 'C':
         {
             cin >> name;
@@ -115,6 +116,7 @@ int main()
 
             break;
         }
+        case 's':
         case 'S':
         {
             cin >> name;
@@ -133,6 +135,7 @@ int main()
 
             break;
         }
+        case 'e':
         case 'E':
         {
             cin >> name;
@@ -151,6 +154,7 @@ int main()
 
             break;
         }
+        case 'l':
         case 'L':
         {
             cin >> name;
@@ -168,6 +172,7 @@ int main()
 
             break;
         }
+        case 'n':
         case 'N':
         {
             if (!lists.isEmpty())
@@ -183,13 +188,15 @@ int main()
 
             break;
         }
+        case 'm':
         case 'M':
         {
             if (!lists.isEmpty())
             {
+                Queue<string> tempNames = names;
                 for (int i = names.size(); i > 0; i--)
                 {
-                    string tempName = names.remove();
+                    string tempName = tempNames.remove();
                     temp.setName(tempName);
                     cout << tempName << "'s song list:\n";
                     lists.search(temp)->data.getList();
