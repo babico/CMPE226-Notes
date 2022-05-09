@@ -16,6 +16,7 @@ namespace std
     {
     private:
         StackNode<T> *top;
+        int count = 0;
 
     public:
         LinkedListStack_CT()
@@ -25,6 +26,12 @@ namespace std
         ~LinkedListStack_CT()
         {
             destroy();
+        }
+
+        int size()
+        {
+            assert(!isEmpty());
+            return top->info;
         }
 
         T sTop()
@@ -39,6 +46,7 @@ namespace std
             temp = top;
             top = top->next;
             T item = temp->info;
+            count--;
             delete temp;
             return item;
         }
@@ -54,6 +62,7 @@ namespace std
             temp->info = item;
             temp->next = top;
             top = temp;
+            count++;
         }
         void destroy()
         {
@@ -64,6 +73,7 @@ namespace std
                 top = top->next;
                 delete temp;
             }
+            count = 0;
         }
     };
 
