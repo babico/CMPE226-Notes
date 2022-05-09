@@ -15,6 +15,7 @@ namespace std
     class LinkedListQueue_CT
     {
     private:
+        int count = 0;
         QueueNode<T> *front, *rear;
 
     public:
@@ -26,7 +27,10 @@ namespace std
         {
             destroyQueue();
         }
-
+        int size() const
+        {
+            return count;
+        }
         T frontQueue()
         {
             assert(!isEmpty());
@@ -40,7 +44,7 @@ namespace std
         T deleteQueue()
         {
             assert(!isEmpty());
-            QueueNode *temp;
+            QueueNode<T> *temp;
             T item;
 
             temp = front;
@@ -52,6 +56,7 @@ namespace std
                 rear = NULL;
             }
 
+            count--;
             delete temp;
             return item;
         }
@@ -63,7 +68,7 @@ namespace std
 
         void insert(T &item)
         {
-            QueueNode<T> *temp = new QueueNode;
+            QueueNode<T> *temp = new QueueNode<T>;
             temp->info = item;
             temp->next = NULL;
             if (front == NULL)
@@ -72,9 +77,10 @@ namespace std
             }
             else
             {
-                rear->info = temp;
+                rear->next = temp;
                 rear = temp;
             }
+            count++;
         }
         void destroyQueue()
         {
@@ -86,6 +92,29 @@ namespace std
                 delete temp;
             }
             rear = NULL;
+            count = 0;
+        }
+        bool operator==(const LinkedListQueue_CT &other) // Exam.Mid2.3.1.cpp
+        {
+            if ((other.size() != size()) || (other.size() == 0) || (size() == 0))
+            {
+                return false;
+            }
+            int count = 0;
+            QueueNode<T> *tempA = front;
+            QueueNode<T> *tempB = other.front;
+
+            while (tempA != NULL)
+            {
+                if (tempA->info == tempB->info)
+                {
+                    count++;
+                    tempA = tempA->next;
+                    tempB = tempB->next;
+                }
+            }
+
+            return (count == other.size());
         }
     };
 }
