@@ -109,7 +109,7 @@ T Queue<T>::remove()
 	count--;
 	return temp;
 }
-   
+
 //Checks whether the queue is empty or not
 template <class T>
 bool Queue<T>::isEmpty()
