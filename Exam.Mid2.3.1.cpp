@@ -5,22 +5,27 @@
 
 using namespace std;
 
-// bool LinkedListQueue_CT::operator==(const LinkedListQueue_CT &other)
+// bool operator==(const LinkedListQueue_CT &other) // Exam.Mid2.3.1.cpp
 // {
-//     if ((other.size() != this->size()) || (other.size() == 0) || (this->size() == 0))
+//     if ((other.size() != size()) || (other.size() == 0) || (size() == 0))
 //     {
-//         return 0;
+//         return false;
 //     }
 //     int count = 0;
-//     QueueNode<T> tempA = this->front;
-//     QueueNode<T> tempB = other.front;
+//     QueueNode<T> *tempA = front;
+//     QueueNode<T> *tempB = other.front;
 
-//     if (tempA.info == tempB.info)
+//     while (tempA != NULL)
 //     {
-//         count++;
+//         if (tempA->info == tempB->info)
+//         {
+//             count++;
+//             tempA = tempA->next;
+//             tempB = tempB->next;
+//         }
 //     }
 
-//     return count == other.size();
+//     return (count == other.size());
 // }
 
 int main(int argc, char const *argv[])
@@ -53,8 +58,6 @@ int main(int argc, char const *argv[])
     {
         cout << "sadge";
     }
-    
-    
 
     return 0;
 }
