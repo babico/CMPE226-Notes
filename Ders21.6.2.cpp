@@ -16,7 +16,8 @@ using namespace std;
 template<typename T>
 void LinkedListQueue_CT<T>::unique()
 {
-    //     3 -> 5 -> 3 -> 5 -> 7 -> 3
+    // 3 -> 5 -> 3 -> 5 -> 7 -> 3
+    // 3 -> 5 -> -> 7
     QueueNode<T> *p, *q, *prev;
     p = front;
     while (p != NULL)
