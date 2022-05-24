@@ -30,7 +30,7 @@ namespace std
         {
             // NONRECURSIVE INORDER TREVARSAL
 
-            LinkedListStack_CT<BinaryTreeNode<T> *> s;
+            LinkedListStack_CT<BinaryTreeNode<T>*> s;
             BinaryTreeNode<T> *temp = root;
             while ((temp != NULL) || (!s.isEmpty()))
             {
