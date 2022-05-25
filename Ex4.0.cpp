@@ -1,5 +1,5 @@
 #include <iostream>
-#include "HeaderFiles/ArrayStack_CT.h"
+#include "HeaderFiles/ArrayStack_CT.hpp"
 
 using namespace std;
 

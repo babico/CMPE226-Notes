@@ -1,5 +1,5 @@
 #include <iostream>
-#include "HeaderFiles/ArrayQueue_CT.h"
+#include "HeaderFiles/ArrayQueue_CT.hpp"
 /*
     There is only 1 runway in a small airport where
     planes take off & land  one by one. Write a program

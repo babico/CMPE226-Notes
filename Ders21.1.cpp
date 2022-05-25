@@ -1,5 +1,5 @@
 #include <iostream>
-#include "HeaderFiles/InheritingBinaryTreeBinarySearchTree_CT.h"
+#include "HeaderFiles/InheritingBinaryTreeBinarySearchTree_CT.hpp"
 
 // UNION DATA TYPES
 

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "HeaderFiles/BinarySearchTree_CT.h"
+#include "HeaderFiles/BinarySearchTree_CT.hpp"
 
 using namespace std;
 /*

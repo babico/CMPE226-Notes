@@ -9,7 +9,7 @@
 */
 
 #include <iostream>
-#include "HeaderFiles/LinkedListQueue_CT.h"
+#include "HeaderFiles/LinkedListQueue_CT.hpp"
 
 using namespace std;
 

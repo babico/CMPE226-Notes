@@ -1,7 +1,7 @@
 // MAKING HEADER FILE FOR BINARY SEARCH TREE
 
 #include <assert.h>
-#include "BinaryTree_CT.h"
+#include "BinaryTree_CT.hpp"
 
 namespace std
 {

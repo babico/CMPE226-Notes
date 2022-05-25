@@ -1,6 +1,6 @@
 // MAKING HEADER FILE FOR INHERITED LINKEDLIST STACK
 
-#include "LinkedList_CT.h"
+#include "LinkedList_CT.hpp"
 
 namespace std
 {

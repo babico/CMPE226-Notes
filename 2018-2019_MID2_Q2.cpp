@@ -1,5 +1,5 @@
 #include <iostream>
-#include "HeaderFiles/LinkedListStack_CT.h"
+#include "HeaderFiles/LinkedListStack_CT.hpp"
 
 using namespace std;
 
@@ -17,7 +17,7 @@ int main()
 
     int size = uniq.size();
     for (int i = 0; i < size; i++)
-    {
+    {   
         dup.push(uniq.pop());
         if (uniq.sTop() == dup.sTop())
         {

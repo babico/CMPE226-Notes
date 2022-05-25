@@ -1,5 +1,5 @@
 #include <iostream>
-#include "HeaderFiles/ArrayStack_CT.h"
+#include "HeaderFiles/ArrayStack_CT.hpp"
 // Write a program to input the exam grades
 // of 50 students & find the names of the students
 // who received the top grade. Use a stack of object

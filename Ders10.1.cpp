@@ -1,5 +1,5 @@
 #include <iostream>
-#include "HeaderFiles/ArrayStack_CT.h"
+#include "HeaderFiles/ArrayStack_CT.hpp"
 // MAKE AN EXAMPLE WITH STACK
 using namespace std;
 

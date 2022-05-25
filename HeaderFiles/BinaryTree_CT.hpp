@@ -1,7 +1,7 @@
 // MAKING HEADER FILE FOR STACK
 
 #include <assert.h>
-#include "./LinkedListStack_CT.h"
+#include "./LinkedListStack_CT.hpp"
 namespace std
 {
     template <typename T>

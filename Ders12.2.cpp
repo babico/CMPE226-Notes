@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "HeaderFiles/ArrayStack_CT.h"
+#include "HeaderFiles/ArrayStack_CT.hpp"
 // INFIX TO POSTFIX
 using namespace std;
 
