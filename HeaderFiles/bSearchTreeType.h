@@ -16,7 +16,6 @@ class bSearchTreeType:public binaryTreeType<T>{
 		void deleteNode(const T& deleteItem);
 	private:
 		void deleteFromTree(binaryTreeNode<T>* &p);
-
 };
 
 template<class T>
@@ -150,7 +149,7 @@ void bSearchTreeType<T>::deleteNode(const T& deleteItem)
 		else if (found)
 		{
 			if (current == binaryTreeType<T>::root)
-				DeleteFromTree(binaryTreeType<T>::root);
+				deleteFromTree(binaryTreeType<T>::root);
 			else if (trailCurrent->info > deleteItem)
 				deleteFromTree(trailCurrent->llink);
 			else
