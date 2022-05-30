@@ -1,33 +1,35 @@
-// queue ==
-
 #include <iostream>
 #include "HeaderFiles/LinkedListQueue_CT.hpp"
 
 using namespace std;
+// Exam.Mid2.3.1.cpp
+// queue ==
 
-// bool operator==(const LinkedListQueue_CT &other) // Exam.Mid2.3.1.cpp
-// {
-//     if ((other.size() != size()) || (other.size() == 0) || (size() == 0))
-//     {
-//         return false;
-//     }
-//     int count = 0;
-//     QueueNode<T> *tempA = front;
-//     QueueNode<T> *tempB = other.front;
+/*
+template <typename T>
+bool operator==(const LinkedListQueue_CT &other) 
+{
+    if ((other.size() != size()) || (other.size() == 0) || (size() == 0))
+    {
+        return false;
+    }
+    int count = 0;
+    QueueNode<T> *tempA = front;
+    QueueNode<T> *tempB = other.front;
 
-//     while (tempA != NULL)
-//     {
-//         if (tempA->info == tempB->info)
-//         {
-//             count++;
-//             tempA = tempA->next;
-//             tempB = tempB->next;
-//         }
-//     }
+    while (tempA != NULL)
+    {
+        if (tempA->info == tempB->info)
+        {
+            count++;
+            tempA = tempA->next;
+            tempB = tempB->next;
+        }
+    }
 
-//     return (count == other.size());
-// }
-
+    return (count == other.size());
+}
+*/
 int main(int argc, char const *argv[])
 {
     LinkedListQueue_CT<int> a, b;

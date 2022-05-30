@@ -2,51 +2,52 @@
 #include "HeaderFiles/DoublyLinkedList_CT.hpp"
 
 using namespace std;
-/*  // Mid1 Question
-    void DoublyLinkedList_CT::delEvenIndex()
+/*  
+template <typename T>
+void DoublyLinkedList_CT::delEvenIndex()
+{
+    DNode<T> *temp, *temp2;
+    temp = head;
+    if (count > 1)
     {
-        DNode<T> *temp, *temp2;
-        temp = head;
-        if (count > 1)
+        temp2 = temp->right;
+    }
+    bool valid = (count % 2 == 0);
+
+    if (head == NULL)
+    {
+        cerr << "List is empty";
+        return;
+    }
+    if (count == 1)
+    {
+        cerr << "List has only 1 node";
+        return;
+    }
+    for (int i = 0; i < (count / 2); i++)
+    {
+        temp->right = temp2->right;
+        if (count > 2)
+        {
+            temp2->right->left = temp;
+        }
+        delete temp2;
+        temp = temp->right;
+        if (count > 2)
         {
             temp2 = temp->right;
         }
-        bool valid = (count % 2 == 0);
-
-        if (head == NULL)
-        {
-            cerr << "List is empty";
-            return;
-        }
-        if (count == 1)
-        {
-            cerr << "List has only 1 node";
-            return;
-        }
-        for (int i = 0; i < (count / 2); i++)
-        {
-            temp->right = temp2->right;
-            if (count > 2)
-            {
-                temp2->right->left = temp;
-            }
-            delete temp2;
-            temp = temp->right;
-            if (count > 2)
-            {
-                temp2 = temp->right;
-            }
-        }
-        if (valid)
-        {
-            temp = head;
-            for (int i = 0; i < count; i++)
-            {
-                temp->right;
-            }
-            last = temp;
-        }
     }
+    if (valid)
+    {
+        temp = head;
+        for (int i = 0; i < count; i++)
+        {
+            temp->right;
+        }
+        last = temp;
+    }
+}
 */
 
 int main(int argc, char const *argv[])
