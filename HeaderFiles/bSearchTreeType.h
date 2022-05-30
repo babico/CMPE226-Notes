@@ -1,11 +1,9 @@
 #ifndef BSEARCHTREETYPE_H
 #define BSEARCHTREETYPE_H
 
-#include<iostream>
+#include <iostream>
 #include <cassert>
 #include "binaryTreeType.h"
-
-
 
 template <class T>
 class bSearchTreeType:public binaryTreeType<T>{
@@ -111,7 +109,6 @@ void bSearchTreeType<T>::deleteFromTree(binaryTreeNode<T>* &p){
 		else
 			trailCurrent->rlink = current->llink;
 		delete current;
-			
 	}
 }
 
