@@ -6,105 +6,142 @@
 #include "binaryTreeType.h"
 
 template <class T>
-class bSearchTreeType:public binaryTreeType<T>{
-	public:
-	
-		binaryTreeNode<T> *search(T &searchItem);
-		void insert(const T& insertItem);
-		void deleteNode(const T& deleteItem);
-	private:
-		void deleteFromTree(binaryTreeNode<T>* &p);
+class bSearchTreeType : public binaryTreeType<T>
+{
+public:
+	binaryTreeNode<T> *search(T &searchItem);
+	void insert(const T &insertItem);
+	void deleteNode(const T &deleteItem);
+	void deleteEven();
+
+private:
+	void deleteEvenP(binaryTreeNode<T> *p);
+	void deleteFromTree(binaryTreeNode<T> *&p);
 };
 
-template<class T>
-binaryTreeNode<T>* bSearchTreeType<T>::search(T &searchItem){
+template <class T>
+void bSearchTreeType<T>::deleteEven()
+{
+	deleteEvenP(binaryTreeType<T>::root);
+}
+
+template <class T>
+void bSearchTreeType<T>::deleteEvenP(binaryTreeNode<T> *p)
+{
+	if (p == NULL)
+	{
+		return;
+	}
+	
+	deleteEvenP(p->llink);
+	if (p->info % 2 == 0)
+	{
+		deleteNode(p->info);
+	}
+	deleteEvenP(p->rlink);
+}
+
+template <class T>
+binaryTreeNode<T> *bSearchTreeType<T>::search(T &searchItem)
+{
 
 	binaryTreeNode<T> *current;
-	bool found=false;
-	
+	bool found = false;
+
 	if (binaryTreeType<T>::root == NULL)
-		std::cerr<<"Cannot search the empty tree."<<std::endl;
-	else{
+		std::cerr << "Cannot search the empty tree." << std::endl;
+	else
+	{
 		current = binaryTreeType<T>::root;
-		while(current != NULL && !found){
-			if(current->info == searchItem)
+		while (current != NULL && !found)
+		{
+			if (current->info == searchItem)
 				found = true;
-			else if(current->info>searchItem)
+			else if (current->info > searchItem)
 				current = current->llink;
-			else 
+			else
 				current = current->rlink;
 		}
 	}
 	return current;
 }
 
-template<class T>
-void bSearchTreeType<T>::insert(const T& insertItem){
+template <class T>
+void bSearchTreeType<T>::insert(const T &insertItem)
+{
 	binaryTreeNode<T> *current;
 	binaryTreeNode<T> *trailCurrent;
 	binaryTreeNode<T> *newNode;
-	
+
 	newNode = new binaryTreeNode<T>;
 	assert(newNode != NULL);
 	newNode->info = insertItem;
 	newNode->llink = NULL;
 	newNode->rlink = NULL;
-	
-	if(binaryTreeType<T>::root == NULL)
+
+	if (binaryTreeType<T>::root == NULL)
 		binaryTreeType<T>::root = newNode;
-	else{
-		current=binaryTreeType<T>::root;
-		while(current != NULL){
+	else
+	{
+		current = binaryTreeType<T>::root;
+		while (current != NULL)
+		{
 			trailCurrent = current;
-			
-			if(current->info > insertItem)
-				current=current->llink;
+
+			if (current->info > insertItem)
+				current = current->llink;
 			else
 				current = current->rlink;
 		}
-		
-		if(trailCurrent->info >insertItem)
+
+		if (trailCurrent->info > insertItem)
 			trailCurrent->llink = newNode;
 		else
 			trailCurrent->rlink = newNode;
 	}
 }
 
-template<class T>
-void bSearchTreeType<T>::deleteFromTree(binaryTreeNode<T>* &p){
+template <class T>
+void bSearchTreeType<T>::deleteFromTree(binaryTreeNode<T> *&p)
+{
 	binaryTreeNode<T> *current;
 	binaryTreeNode<T> *trailCurrent;
 	binaryTreeNode<T> *temp;
-	
-	if(p == NULL)
-		std::cerr<< "Error: The node to be deleted is NULL"<<std::endl;
-	else if (p->llink == NULL && p->rlink == NULL){
+
+	if (p == NULL)
+		std::cerr << "Error: The node to be deleted is NULL" << std::endl;
+	else if (p->llink == NULL && p->rlink == NULL)
+	{
 		temp = p;
 		p = NULL;
 		delete temp;
 	}
-	else if(p->llink == NULL){
+	else if (p->llink == NULL)
+	{
 		temp = p;
 		p = temp->rlink;
 		delete temp;
 	}
-	else if(p->rlink == NULL){
+	else if (p->rlink == NULL)
+	{
 		temp = p;
 		p = temp->llink;
 		delete temp;
 	}
-	else{
+	else
+	{
 		current = p->llink;
 		trailCurrent = NULL;
-		
-		while(current->rlink != NULL){
+
+		while (current->rlink != NULL)
+		{
 			trailCurrent = current;
 			current = current->rlink;
 		}
-		
+
 		p->info = current->info;
-		
-		if(trailCurrent == NULL)
+
+		if (trailCurrent == NULL)
 			p->llink = current->llink;
 		else
 			trailCurrent->rlink = current->llink;
@@ -113,7 +150,7 @@ void bSearchTreeType<T>::deleteFromTree(binaryTreeNode<T>* &p){
 }
 
 template <class T>
-void bSearchTreeType<T>::deleteNode(const T& deleteItem)
+void bSearchTreeType<T>::deleteNode(const T &deleteItem)
 {
 	binaryTreeNode<T> *current;
 	binaryTreeNode<T> *trailCurrent;
@@ -155,9 +192,4 @@ void bSearchTreeType<T>::deleteNode(const T& deleteItem)
 	}
 }
 
-
 #endif
-
-
-
-

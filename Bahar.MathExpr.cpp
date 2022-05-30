@@ -15,7 +15,7 @@ int main(int argc, char const *argv[])
 
     cout << "enter: ";
     cin >> exp;
-    
+
     for (int i = 0; (i < exp.length() && valid); i++)
     {
         c = exp[i];
@@ -45,7 +45,9 @@ int main(int argc, char const *argv[])
         cout << "valid\n";
     }
     else
+    {
         cout << "not valid\n";
+    }
 
     return 0;
 }
