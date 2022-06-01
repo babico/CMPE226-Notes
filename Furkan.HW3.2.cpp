@@ -6,7 +6,6 @@ using namespace std;
 int main(){
 	
 	bSearchTreeType<int> one;
-	
 	binaryTreeNode<int> *temp;
 	
 	int size;
@@ -45,6 +44,6 @@ int main(){
 	    cout << "The value you entered " << number <<" has been found " << counter << " times." << endl;
 	else
 	    cout << "The value you entered " << number <<" could not be found. " << endl;
-	    
+
 	return 0;
 }

@@ -36,7 +36,7 @@ public:
 };
 int main()
 {
-    fstream girisDosya("student.txt");
+    fstream girisDosya("Ders5.2.Student.txt");
 
     Person insanlar;
     LinkedList<Person> liste;
