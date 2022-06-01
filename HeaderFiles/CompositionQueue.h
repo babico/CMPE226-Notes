@@ -11,51 +11,62 @@
  * 		but if you use inheritance, there would be.
  */
 
-#ifndef QUEUE_H_
-#define QUEUE_H_
+#ifndef COMPOSITIONQUEUE_H_
+#define COMPOSITIONQUEUE_H_
 
 #include <iostream>
 #include <cassert>
 #include "LinkedList.h"
 
-namespace std{
+namespace std
+{
 
-template <typename T>
-class Queue{
-protected:
-	LinkedList<T> myList;
-public:
-	bool isEmpty() const{
-		return myList.isEmpty();
-	}
-	bool isFull() const{
-		return false;
-	}
+	template <typename T>
+	class Queue
+	{
+	protected:
+		LinkedList<T> myList;
 
-	void clearQueue(){
-		myList.clearList();
-	}
+	public:
+		bool isEmpty() const
+		{
+			return myList.isEmpty();
+		}
+		bool isFull() const
+		{
+			return false;
+		}
 
-	T front() const{
-		return myList.front();
-	}
+		void clearQueue()
+		{
+			myList.clearList();
+		}
 
-	T rear() const{
-		return myList.back();
-	}
+		T front() const
+		{
+			return myList.front();
+		}
 
-	void add(const T &val){ //insert, push, enqueue, add
-		myList.insertLast(val);
-	}
-	T remove(){ //Delete, serve, remove, dequeue, pop
-		T item = myList.front();
-		myList.deleteFirst();
-		return item;
-	}
-	int size() const{
-		return myList.length();
-	}
-};
+		T rear() const
+		{
+			return myList.back();
+		}
+
+		void add(const T &val)
+		{ // insert, push, enqueue, add
+			myList.insertLast(val);
+		}
+		T remove()
+		{ // Delete, serve, remove, dequeue, pop
+			T item = myList.front();
+			myList.deleteFirst();
+			return item;
+		}
+		int size() const
+		{
+			return myList.length();
+		}
+	};
 
 }
-#endif /* QUEUE_H_ */
+#endif /* COMPOSITIONQUEUE_H_ */

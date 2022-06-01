@@ -13,7 +13,7 @@ public:
 	void insert(const T &insertItem);
 	void deleteNode(const T &deleteItem);
 	void deleteEven(); // Example
-	bool isStrict(); // Exam.Final.4.1.cpp
+	bool isStrict();   // Exam.Final.4.1.cpp
 
 private:
 	void deleteEvenP(binaryTreeNode<T> *p);

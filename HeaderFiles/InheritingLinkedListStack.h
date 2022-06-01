@@ -12,38 +12,45 @@
 #include <cassert>
 #include "LinkedList.h"
 
-namespace std{
+namespace std
+{
 
-template <typename T>
-class InheritingLinkedListStack:private LinkedList<T>{
-public:
-	bool isEmpty(){
-		return LinkedList<T>::isEmpty(); // OR return this->isEmpty();
-	}
+	template <typename T>
+	class InheritingLinkedListStack : private LinkedList<T>
+	{
+	public:
+		bool isEmpty()
+		{
+			return LinkedList<T>::isEmpty(); // OR return this->isEmpty();
+		}
 
-	void push(const T &item){
-		this->insertFirst(item);
-	}
+		void push(const T &item)
+		{
+			this->insertFirst(item);
+		}
 
-	T peek(){
-		return this->front();
-	}
+		T peek()
+		{
+			return this->front();
+		}
 
-	void clear(){
-		this->clearList();
-	}
+		void clear()
+		{
+			this->clearList();
+		}
 
-	T pop(){
-		T item = this->front();
-		this->deleteFirst();
-		return item;
-	}
+		T pop()
+		{
+			T item = this->front();
+			this->deleteFirst();
+			return item;
+		}
 
-	int size(){
-		return this->size();
-	}
-};
-
+		int size()
+		{
+			return this->size();
+		}
+	};
 
 }
 #endif /* INHERITINGLINKEDLISTSTACK_H_ */

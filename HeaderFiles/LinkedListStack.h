@@ -20,46 +20,55 @@
 #include <cassert>
 using namespace std;
 
-template<class T>
-struct SNode {
+template <class T>
+struct SNode
+{
 	T data;
 	SNode<T> *next;
 };
 
-template<class T>
-class LinkedListStack {
+template <class T>
+class LinkedListStack
+{
 protected:
-	SNode<T> *top; //head becomes top. Items should be inserted from top.
+	SNode<T> *top; // head becomes top. Items should be inserted from top.
 	int cnt;
+
 public:
-//Constructor
-	LinkedListStack() {
-		top = NULL; //sets top initial value to NULL
+	// Constructor
+	LinkedListStack()
+	{
+		top = NULL; // sets top initial value to NULL
 		cnt = 0;
 	}
-//Destructor
-	~LinkedListStack() {
+	// Destructor
+	~LinkedListStack()
+	{
 		clear();
 	}
-	bool isEmpty() {
+	bool isEmpty()
+	{
 		return top == NULL;
 	}
-//There is no size limitation in Stack using LinkedList implementation. We do not need to check if the stack is full or not.
-	T peek() { // you can name it as peek
-		assert( !isEmpty() ); //if not empty
-		return top->data;//return the value on the 	top
+	// There is no size limitation in Stack using LinkedList implementation. We do not need to check if the stack is full or not.
+	T peek()
+	{						// you can name it as peek
+		assert(!isEmpty()); // if not empty
+		return top->data;	// return the value on the 	top
 	}
 	T pop();
-	void push(const T&);
+	void push(const T &);
 	void clear();
 	int size();
 };
 
-//resets the stack to its initial state
-template<class T>
-void LinkedListStack<T>::clear() {
+// resets the stack to its initial state
+template <class T>
+void LinkedListStack<T>::clear()
+{
 	SNode<T> *p;
-	while (top != NULL) {
+	while (top != NULL)
+	{
 		p = top;
 		top = top->next;
 		delete p;
@@ -67,9 +76,10 @@ void LinkedListStack<T>::clear() {
 	cnt = 0;
 }
 
-//insert a new item to the top of stack
-template<class T>
-void LinkedListStack<T>::push(const T &item) {
+// insert a new item to the top of stack
+template <class T>
+void LinkedListStack<T>::push(const T &item)
+{
 	SNode<T> *newNode = new SNode<T>;
 	newNode->data = item;
 	newNode->next = top;
@@ -77,12 +87,13 @@ void LinkedListStack<T>::push(const T &item) {
 	cnt++;
 }
 
-//retrieve (remove and return) the top value
-template<class T>
-T LinkedListStack<T>::pop() {
-	SNode<T> *p; //pointer to traverse
+// retrieve (remove and return) the top value
+template <class T>
+T LinkedListStack<T>::pop()
+{
+	SNode<T> *p; // pointer to traverse
 	T item;
-	assert(!isEmpty()); //if the stack is empty terminate
+	assert(!isEmpty()); // if the stack is empty terminate
 	p = top;
 	item = top->data;
 	top = top->next;
@@ -91,8 +102,9 @@ T LinkedListStack<T>::pop() {
 	return item;
 }
 
-template<class T>
-int LinkedListStack<T>:: size(){
+template <class T>
+int LinkedListStack<T>::size()
+{
 	return cnt;
 }
 

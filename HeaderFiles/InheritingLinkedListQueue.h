@@ -5,8 +5,8 @@
  *      Author: Ziya Karakaya
  */
 
-#ifndef QUEUE_H_
-#define QUEUE_H_
+#ifndef INHERITINGLINKEDLISTQUEUE_H_
+#define INHERITINGLINKEDLISTQUEUE_H_
 
 #include <iostream>
 #include <cassert>
@@ -63,4 +63,4 @@ namespace std
 	};
 
 }
-#endif /* QUEUE_H_ */
+#endif /* INHERITINGLINKEDLISTQUEUE_H_ */

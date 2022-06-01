@@ -5,8 +5,8 @@
  *      Author: ziya
  */
 
-#ifndef QUEUE_H_
-#define QUEUE_H_
+#ifndef LINKEDLISTQUEUE_H_
+#define LINKEDLISTQUEUE_H_
 
 #include <iostream>
 #include <cassert>
@@ -168,4 +168,4 @@ namespace std
 	}
 
 }
-#endif /* QUEUE_H_ */
+#endif /* LINKEDLISTQUEUE_H_ */
