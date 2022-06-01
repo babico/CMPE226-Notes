@@ -12,27 +12,65 @@ public:
 	binaryTreeNode<T> *search(T &searchItem);
 	void insert(const T &insertItem);
 	void deleteNode(const T &deleteItem);
-	void deleteEven();
+	void deleteEven(); // Example
+	bool isStrict(); // Exam.Final.4.1.cpp
 
 private:
 	void deleteEvenP(binaryTreeNode<T> *p);
 	void deleteFromTree(binaryTreeNode<T> *&p);
+	void isStrictPriv(binaryTreeNode<T> *p, bool &res); // Exam.Final.4.1.cpp
 };
 
 template <class T>
-void bSearchTreeType<T>::deleteEven()
-{
-	deleteEvenP(binaryTreeType<T>::root);
-}
-
-template <class T>
-void bSearchTreeType<T>::deleteEvenP(binaryTreeNode<T> *p)
+void bSearchTreeType<T>::isStrictPriv(binaryTreeNode<T> *p, bool &res) // Exam.Final.4.1.cpp
 {
 	if (p == NULL)
 	{
 		return;
 	}
-	
+	if (res == false)
+	{
+		return;
+	}
+
+	if (p->llink != NULL && p->rlink != NULL)
+	{
+		isStrictPriv(p->llink, res);
+		isStrictPriv(p->rlink, res);
+	}
+	else if (p->llink == NULL && p->rlink == NULL)
+	{
+		isStrictPriv(p->llink, res);
+		isStrictPriv(p->rlink, res);
+	}
+	else
+	{
+		res = false;
+	}
+}
+
+template <class T>
+bool bSearchTreeType<T>::isStrict() // Exam.Final.4.1.cpp
+{
+	bool res = true;
+	isStrictPriv(binaryTreeType<T>::root, res);
+	return res;
+}
+
+template <class T>
+void bSearchTreeType<T>::deleteEven() // Example
+{
+	deleteEvenP(binaryTreeType<T>::root);
+}
+
+template <class T>
+void bSearchTreeType<T>::deleteEvenP(binaryTreeNode<T> *p) // Example
+{
+	if (p == NULL)
+	{
+		return;
+	}
+
 	deleteEvenP(p->llink);
 	if (p->info % 2 == 0)
 	{
